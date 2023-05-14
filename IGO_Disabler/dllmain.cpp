@@ -2,6 +2,8 @@
 
 #include "Platform.h"
 
+#include "Hooks/Hooks.h"
+
 typedef void(__fastcall* EnableIGODebugMenuFn)(bool);
 
 #ifndef NDEBUG
@@ -16,6 +18,8 @@ BOOL WINAPI StartupThread()
 
 	EnableIGODebugMenu(true);
 #endif
+
+	Hooks::Initialize();
 
 	return TRUE;
 }
